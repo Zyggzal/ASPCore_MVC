@@ -1,0 +1,9 @@
+﻿@{
+    ViewData["Title"] = "Product Details";
+}
+@model Product
+
+<h1>@Model.Name</h1>
+<h4>Price: @Model.Price</h4>
+<p>@Model.Description</p>
+<a asp-controller="Products" asp-action="Index" class="btn btn-outline-secondary">Back</a>

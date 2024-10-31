@@ -1,0 +1,14 @@
+﻿@{
+    ViewData["Title"] = "Update Page";
+}
+@model Product
+
+<form method="POST" asp-controller="Products" asp-action="Update">
+    <div class="form-group">
+    @Model.Id
+    <input asp-for="Name" type="text" class="form-control m-1" placeholder="Name" required>
+    <input asp-for="Price" type="decimal" step="0.1" class="form-control m-1" placeholder="Price" required>
+    <textarea asp-for="Description" class="form-control m-1" placeholder="Description" rows="3"></textarea>
+  </div>
+  <button type="submit" class="btn btn-outline-primary m-1">Confirm</button>
+</form>

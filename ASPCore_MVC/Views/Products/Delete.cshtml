@@ -1,0 +1,10 @@
+﻿@{
+    ViewData["Title"] = "Delete Page";
+}
+@model int
+
+<form method="POST" asp-controller="Products" asp-action="DeleteFunc" asp-route-id="@Model">
+    <h1>Are you sure?</h1>
+    <button type="submit" class="btn btn-outline-danger m-1">Yes</button>
+    <a asp-controller="Products" asp-action="Index" class="btn btn-outline-secondary m-1">No</a>
+</form>

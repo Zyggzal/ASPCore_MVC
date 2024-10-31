@@ -1,0 +1,36 @@
+﻿@{
+    ViewData["Title"] = "All Products";
+}
+@model List<Product>
+
+<div>
+    <h1>Products</h1>
+    @if(Model == null || Model.Count == 0)
+    {
+        <p>Nothing to see here for now...</p>
+    }
+    else
+    {
+        <div class="list-group p-3">
+            @foreach(var p in Model)
+            {
+                <div class="list-group-item list-group-item-action">
+                    <h2>@p.Name</h2>
+                    <p class='text-secondary'><small>@p.Price</small></p>
+                    <hr />
+                    <div class="d-flex justify-content-between">
+                        <p>@p.Description</p>
+                        <div>
+                            <a asp-controller="Products" asp-action="Details" asp-route-id="@p.Id" class="btn btn-outline-info">Details</a>
+                            @if(User.Identity.IsAuthenticated)
+                            {
+                                <a asp-controller="Products" asp-action="Update" asp-route-id="@p.Id" class="btn btn-outline-warning">Update</a>
+                                <a asp-controller="Products" asp-action="Delete" asp-route-id="@p.Id" class="btn btn-outline-danger">Delete</a>
+                            }
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>
